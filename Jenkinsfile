@@ -2,28 +2,28 @@ pipeline{
 
 agent any
 
-tools{
-maven 'maven3.8.2'
+// tools{
+// maven 'maven3.8.2'
 
-}
+// }
 
-triggers{
-pollSCM('* * * * *')
-}
+// triggers{
+// pollSCM('* * * * *')
+// }
 
-options{
-timestamps()
-buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
-}
+// options{
+// timestamps()
+// buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5'))
+// }
 
 stages{
 
-  stage('CheckOutCode'){
-    steps{
-    git branch: 'development', credentialsId: '957b543e-6f77-4cef-9aec-82e9b0230975', url: 'https://github.com/devopstrainingblr/maven-web-application-1.git'
+  // stage('CheckOutCode'){
+  //   steps{
+  //   git branch: 'development', credentialsId: '957b543e-6f77-4cef-9aec-82e9b0230975', url: 'https://github.com/devopstrainingblr/maven-web-application-1.git'
 	
-	}
-  }
+	// }
+  // }
   
   stage('Build'){
   steps{
@@ -58,17 +58,17 @@ github test2
 post{
 
  success{
- emailext to: 'devopstrainingblr@gmail.com,mithuntechnologies@yahoo.com',
+ emailext to: 'arshadahmed789@gmail.com,
           subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
           body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          replyTo: 'devopstrainingblr@gmail.com'
+          replyTo: 'arshadahmed789@gmail.com'
  }
  
  failure{
- emailext to: 'devopstrainingblr@gmail.com,mithuntechnologies@yahoo.com',
+ emailext to: 'arshadahmed789@gmail.com,
           subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
           body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
-          replyTo: 'devopstrainingblr@gmail.com'
+          replyTo: 'arshadahmed789@gmail.com'
  }
  
 }
