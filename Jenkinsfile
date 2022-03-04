@@ -58,14 +58,14 @@ github test2
 post{
 
  success{
- emailext to: 'arshadahmed789@gmail.com,
+ emailext to: 'arshadahmed789@gmail.com',
           subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
           body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
           replyTo: 'arshadahmed789@gmail.com'
  }
  
  failure{
- emailext to: 'arshadahmed789@gmail.com,
+ emailext to: 'arshadahmed789@gmail.com',
           subject: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
           body: "Pipeline Build is over .. Build # is ..${env.BUILD_NUMBER} and Build status is.. ${currentBuild.result}.",
           replyTo: 'arshadahmed789@gmail.com'
